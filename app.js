@@ -40,7 +40,7 @@ startBtn.addEventListener('click', async () => {
 async function fetchQuestions(subject) {
     try {
         // ALOC API allows fetching up to 40 questions per request for free
-        const response = await fetch(`/api/get-questions?subject=${subject}`);
+        const response = await fetch(` api/api/get-questions?subject=${subject}`);
         const data = await response.json();
         
         if (data && data.data) {
