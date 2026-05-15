@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMB CBT Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <div id="setup-screen" class="screen active">
+        <h1>JAMB CBT Simulator</h1>
+        <p>Select a subject to begin. You have 60 minutes.</p>
+        
+        <select id="subject-select">
+            <option value="english">Use of English</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="physics">Physics</option>
+            <option value="chemistry">Chemistry</option>
+        </select>
+        
+        <button id="start-btn">Start Exam</button>
+        <p id="loading-text" class="hidden">Fetching questions... Please wait.</p>
+    </div>
+
+    <div id="exam-screen" class="screen hidden">
+        <header>
+            <h2>Subject: <span id="current-subject">English</span></h2>
+            <div id="timer">Time Left: 60:00</div>
+        </header>
+
+        <main class="exam-container">
+            <section class="question-area">
+                <h3 id="question-number">Question 1</h3>
+                <p id="question-text">Loading...</p>
+                
+                <div class="options-container" id="options-container">
+                    </div>
+
+                <div class="navigation-buttons">
+                    <button id="prev-btn" disabled>Previous</button>
+                    <button id="next-btn">Next</button>
+                    <button id="submit-btn" class="submit-style">Submit Exam</button>
+                </div>
+            </section>
+
+            <aside class="navigation-grid">
+                <p><strong>Question Navigator</strong></p>
+                <div class="grid-legend">
+                    <span class="legend-box answered"></span> Answered
+                    <span class="legend-box unanswered"></span> Unanswered
+                </div>
+                <div id="grid-container"></div>
+            </aside>
+        </main>
+    </div>
+
+    <div id="results-screen" class="screen hidden">
+        <h1>Exam Submitted!</h1>
+        <h2 id="final-score">Your Score: 0/50</h2>
+        
+        <h3>Corrections:</h3>
+        <div id="corrections-container">
+            </div>
+        <button onclick="location.reload()">Take Another Test</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
